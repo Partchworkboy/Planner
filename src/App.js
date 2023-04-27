@@ -66,10 +66,12 @@ const App = () => {
   return (
     <div>
       <h1>Brea Planner</h1>
-      <Calendar
-        value={new Date()}
-        onChange={() => {}}
-      />
+      <div className="calendar-container">
+        <Calendar
+          value={new Date()}
+          onChange={() => {}}
+        />
+      </div>
       <h2>Events</h2>
       <div className="event-list">
         {events.map((event, index) => (
