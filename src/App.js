@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import Calendar from 'react-calendar';
+import './App.css'
 import 'react-datepicker/dist/react-datepicker.css';
 
 const EventForm = ({ addEvent }) => {
