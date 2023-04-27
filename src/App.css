@@ -6,6 +6,64 @@ body {
   margin: 0;
   padding: 0;
 }
+/* Center headings */
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+/* Center containers */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+/* Style calendar */
+.react-calendar {
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+}
+
+.react-calendar__tile--now {
+  background: #42b983;
+  color: #fff;
+}
+
+.react-calendar__tile--active {
+  background: #42b983;
+  color: #fff;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #42b983;
+}
+
+.react-calendar__tile--active:enabled:focus,
+.react-calendar__tile--active:enabled:active {
+  background: #42b983;
+}
+
+.react-calendar__tile--hasActive {
+  background: #e6f4ea;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #d7f2e8;
+}
+
+.react-calendar__tile--hasActive:enabled:focus,
+.react-calendar__tile--hasActive:enabled:active {
+  background: #c4eedf;
+}
 
 header {
   background-color: #333;
