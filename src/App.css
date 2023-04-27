@@ -222,4 +222,22 @@ form button[type="submit"]:hover {
 .form-group button[type="submit"]:hover {
   background-color: #457b9d;
 }
+.title {
+  animation-name: slideIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(-50px);
+  }
+}
 
