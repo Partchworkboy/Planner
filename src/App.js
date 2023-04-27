@@ -34,11 +34,7 @@ const AddEventForm = ({ addEvent }) => {
           id="startDate"
           selected={startDate}
           onChange={date => setStartDate(date)}
-          showTimeSelect
-          timeFormat="HH:mm"
-          timeIntervals={15}
-          timeCaption="time"
-          dateFormat="MMMM d, yyyy h:mm aa"
+          dateFormat="MMMM d, yyyy"
         />
       </div>
       <div className="form-group">
@@ -48,11 +44,7 @@ const AddEventForm = ({ addEvent }) => {
           id="endDate"
           selected={endDate}
           onChange={date => setEndDate(date)}
-          showTimeSelect
-          timeFormat="HH:mm"
-          timeIntervals={15}
-          timeCaption="time"
-          dateFormat="MMMM d, yyyy h:mm aa"
+          dateFormat="MMMM d, yyyy"
         />
       </div>
       <button type="submit">Add Event</button>
@@ -62,21 +54,33 @@ const AddEventForm = ({ addEvent }) => {
 
 function EventList({ events, onToggle, onDelete }) {
   return (
-    <ul>
-      {events.map(event => (
-        <li key={event.id}>
-          <label>
-            <input
-              type="checkbox"
-              checked={event.isDone}
-              onChange={() => onToggle(event.id)}
-            />
-            {event.name} - {event.startDate} to {event.endDate}
-          </label>
-          <button onClick={() => onDelete(event.id)}>Delete</button>
-        </li>
-      ))}
-    </ul>
+    <div className="event-list-container">
+      <table className="event-list">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {events.map(event => (
+            <tr key={event.id}>
+              <td>{event.name}</td>
+              <td>{event.startDate.toLocaleDateString()}</td>
+              <td>{event.endDate.toLocaleDateString()}</td>
+              <td>
+                <button onClick={() => onToggle(event.id)}>
+                  {event.isDone ? "Undo" : "Done"}
+                </button>
+                <button onClick={() => onDelete(event.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
@@ -110,5 +114,3 @@ function App() {
 }
 
 export default App;
-
-
