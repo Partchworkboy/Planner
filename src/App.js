@@ -1,4 +1,5 @@
 import './App.css';
+import Calendar from './Calendar';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -17,6 +18,14 @@ const AddEventForm = ({ addEvent }) => {
   };
 
   return (
+     <div>
+      <h1>Brea Planner</h1>
+      <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+      <div className="app-container">
+        <div className="add-event-container">
+          <h2>Add Event</h2>
+          <AddEventForm addEvent={addEvent} />
+        </div>
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="eventName">Event Name:</label>
