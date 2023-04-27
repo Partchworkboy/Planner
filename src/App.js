@@ -1,9 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import Calendar from 'react-calendar';
 import './App.css'
+import eventsData from './events';
 import 'react-datepicker/dist/react-datepicker.css';
 
+const App = () => {
+  const [events, setEvents] = useState(eventsData);
+  
+  useEffect(() => {
+    const storedEvents = JSON.parse(localStorage.getItem('events'));
+    if (storedEvents) {
+      setEvents(storedEvents);
+    }
+  }, []);
+
+  const addEvent = (event) => {
+    const updatedEvents = [...events, event];
+    setEvents(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+  };
+
+  const handleEventDelete = (index) => {
+    const updatedEvents = [...events.filter((_, i) => i !== index)];
+    setEvents(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+  };
+
+  const handleEventDoneToggle = (index) => {
+    const updatedEvents = [...events];
+    updatedEvents[index].done = !updatedEvents[index].done;
+    setEvents(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+  };
 const EventForm = ({ addEvent }) => {
   const [eventName, setEventName] = useState('');
   const [startDate, setStartDate] = useState(new Date());
