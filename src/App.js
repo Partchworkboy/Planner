@@ -16,6 +16,16 @@ const EventForm = ({ addEvent }) => {
     setStartDate(new Date());
     setEndDate(new Date());
   };
+  
+   const handleEventDelete = (index) => {
+    setEvents(events.filter((_, i) => i !== index));
+  };
+
+  const handleEventDoneToggle = (index) => {
+    const updatedEvents = [...events];
+    updatedEvents[index].done = !updatedEvents[index].done;
+    setEvents(updatedEvents);
+  };
 
   return (
     <div>
