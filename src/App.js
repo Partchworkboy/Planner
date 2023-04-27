@@ -82,6 +82,8 @@ const App = () => {
           onChange={() => {}}
         />
       </div>
+      <h2>Add Event</h2>
+      <EventForm addEvent={addEvent} />
       <h2>Events</h2>
       <div className="event-list">
         {events.map((event, index) => (
@@ -114,9 +116,6 @@ const App = () => {
             </div>
           </div>
         ))}
-      </div>
-      <EventForm addEvent={addEvent} />
-    </div>
   );
 };
 
