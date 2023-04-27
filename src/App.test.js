@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Planner from './Planner';
+import App from './App';
 
 test('adds a task to the planner', () => {
-  render(<Planner />);
+  render(<App />);
 
   const taskInput = screen.getByPlaceholderText('Enter task...');
   fireEvent.change(taskInput, { target: { value: 'Buy groceries' } });
