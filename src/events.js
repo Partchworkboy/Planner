@@ -2,7 +2,7 @@
 
 const eventsData = [
   { 
-    eventName: 'Placeholder Event',
+    eventName: '{}',
     startDate: new Date(),
     endDate: new Date(),
     done: false
