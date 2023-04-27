@@ -17,45 +17,78 @@ const EventForm = ({ addEvent }) => {
   };
 
   return (
-    <h1>Brea Planner</h1>
-    <Calendar
-        value={startDate}
-        onChange={date => setStartDate(date)}
-      />
-    <form onSubmit={handleSubmit}>
-    <h2>Add Event</h2>
-      <div className="form-group">
-        <label htmlFor="eventName">Event Name:</label>
-        <input
-          type="text"
-          id="eventName"
-          value={eventName}
-          onChange={(e) => setEventName(e.target.value)}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="startDate">Start Date:</label>
-        <br />
-        <DatePicker
-          id="startDate"
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          dateFormat="MMMM d, yyyy"
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="endDate">End Date:</label>
-        <br />
-        <DatePicker
-          id="endDate"
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-          dateFormat="MMMM d, yyyy"
-        />
-      </div>
-      <button type="submit">Add Event</button>
-    </form>
+    <div>
+      <h2>Add Event</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="eventName">Event Name:</label>
+          <input
+            type="text"
+            id="eventName"
+            value={eventName}
+            onChange={(e) => setEventName(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="startDate">Start Date:</label>
+          <br />
+          <DatePicker
+            id="startDate"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            dateFormat="MMMM d, yyyy"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="endDate">End Date:</label>
+          <br />
+          <DatePicker
+            id="endDate"
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            dateFormat="MMMM d, yyyy"
+          />
+        </div>
+        <button type="submit">Add Event</button>
+      </form>
+    </div>
   );
 };
 
-export default EventForm;
+const App = () => {
+  const [events, setEvents] = useState([]);
+
+  const addEvent = (event) => {
+    setEvents([...events, event]);
+  };
+
+  return (
+    <div>
+      <h1>Brea Planner</h1>
+      <Calendar
+        value={new Date()}
+        onChange={() => {}}
+      />
+      <h2>Events</h2>
+      <div className="event-list">
+        {events.map((event, index) => (
+          <div
+            key={index}
+            className={`event ${event.done ? 'done' : ''}`}
+          >
+            <h3>{event.eventName}</h3>
+            <p>
+              Start Date: {event.startDate.toDateString()}
+            </p>
+            <p>
+              End Date: {event.endDate.toDateString()}
+            </p>
+          </div>
+        ))}
+      </div>
+      <EventForm addEvent={addEvent} />
+    </div>
+  );
+};
+
+export default App;
