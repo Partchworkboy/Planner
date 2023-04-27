@@ -63,7 +63,7 @@ const App = () => {
     setEvents([...events, event]);
   };
   
-   const handleEventDelete = (index) => {
+  const handleEventDelete = (index) => {
     setEvents(events.filter((_, i) => i !== index));
   };
 
@@ -95,26 +95,29 @@ const App = () => {
             <p>
               Start Date: {event.startDate.toDateString()}
             </p>
-            <p>
-              End Date: {event.endDate.toDateString()}
-            </p>
-            <div className="event-buttons">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={event.done}
-                  onChange={() => handleEventDoneToggle(index)}
-                />
-                Done
-              </label>
-              <button
-                className="delete-button"
-                onClick={() => handleEventDelete(index)}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
+			<p>
+				End Date: {event.endDate.toDateString()}
+			</p>
+			<div className="event-buttons">
+				<label>
+					<input
+						type="checkbox"
+						checked={event.done}
+						onChange={() => handleEventDoneToggle(index)}
+					/>
+					Done
+				</label>
+				<button
+					className="delete-button"
+					onClick={() => handleEventDelete(index)}
+				>
+					Delete
+				</button>
+			</div>
+		  </div>
+	    ))}
+	  </div>
+    </div>
   );
 };
 
