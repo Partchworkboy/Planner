@@ -85,9 +85,6 @@ const EventForm = ({ addEvent }) => {
   );
 };
 
-const App = () => {
-  const [events, setEvents] = useState([]);
-
   const addEvent = (event) => {
     setEvents([...events, event]);
   };
