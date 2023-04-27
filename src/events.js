@@ -2,7 +2,7 @@
 
 const eventsData = [
   { 
-    eventName: '',
+    eventName: 'new Event',
     startDate: new Date(),
     endDate: new Date(),
     done: false
