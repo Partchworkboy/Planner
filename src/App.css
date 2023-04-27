@@ -1,106 +1,113 @@
 body {
-  background-color: black;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f8f8;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  color: pink;
+header {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
+nav {
+  display: flex;
 }
 
-.form-group {
-  margin-bottom: 1rem;
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
 }
 
-label {
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+form {
+  width: 50%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2rem;
+}
+
+form label {
   display: block;
   margin-bottom: 0.5rem;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="email"],
-textarea {
-  display: block;
+form input[type="text"] {
   width: 100%;
   padding: 0.5rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-  outline: 0;
-  border-color: #80bdff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-button {
-  display: inline-block;
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  transition: color 0.15s ease-in-out,
-              background-color 0.15s ease-in-out,
-              border-color 0.15s ease-in-out;
-}
-
-button:hover {
-  color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
-}
-
-button:active {
-  color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid white;
-}
-
-th {
-  background-color: pink;
-  border: 1px solid white;
-  padding: 0.5rem;
-}
-
-td {
-  border: 1px solid white;
-  padding: 0.5rem;
-}
-
-tbody tr:nth-child(even) {
+form button[type="submit"] {
   background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.scrollable-table {
-  max-height: 400px;
-  overflow-y: scroll;
+form button[type="submit"]:hover {
+  background-color: #666;
+}
+
+.event {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+.event.done {
+  background-color: #c5e1a5;
+}
+
+.event h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.event p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.event .delete-button {
+  background-color: #fff;
+  color: #f44336;
+  border: 1px solid #f44336;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.event .delete-button:hover {
+  background-color: #f44336;
+  color: #fff;
 }
